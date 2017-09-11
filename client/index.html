@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Manggo Tree Simulator </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="panel-group">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h2> --Mango Tree Simulator-- </h2>
+            <div class="panel-body">
+              <h2>Manggo Tree Growing Form</h2>
+              <ul class="list-group">
+                <li v-for="tree in trees">{{ tree['.key'] }} : {{ tree['.value'] }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+    <script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
+  </body>
+
+  <script type="text/javascript">
+    var config = {
+      databaseURL: "https://kanban-firebase.firebaseio.com",
+      projectId: "kanban-firebase"
+    }
+    firebase.initializeApp(config);
+    var db = firebase.database()
+
+    var app = new Vue({
+      el: '#app',
+      firebase: function () {
+        return {
+          trees: db.ref(`manggo`)
+        }
+      }
+    })
+
+  </script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  -->
